@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dstm080halxkt"]
+
+[ext_resource type="Script" uid="uid://o8bol2f45qf6" path="res://Script/game.gd" id="1_u6khg"]
+[ext_resource type="PackedScene" uid="uid://bwlfyb0ac433r" path="res://Scene/Background.tscn" id="2_ou18a"]
+[ext_resource type="PackedScene" uid="uid://bqystwffyar2v" path="res://Scene/Player.tscn" id="3_ou18a"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_u6khg")
+background_scene = Array[PackedScene]([ExtResource("2_ou18a"), ExtResource("2_ou18a"), ExtResource("2_ou18a"), ExtResource("2_ou18a"), ExtResource("2_ou18a"), ExtResource("2_ou18a"), ExtResource("2_ou18a"), ExtResource("2_ou18a")])
+background_node = [null, null, null, null, null, null, null, null]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 600)
+
+[node name="Player" parent="." instance=ExtResource("3_ou18a")]
+z_index = 1000
+position = Vector2(373, 1046)
