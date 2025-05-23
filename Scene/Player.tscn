@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqystwffyar2v"]
+[gd_scene load_steps=25 format=3 uid="uid://bqystwffyar2v"]
 
 [ext_resource type="Script" uid="uid://q0ulxuxmd1j2" path="res://Script/player.gd" id="1_3eeal"]
 [ext_resource type="Texture2D" uid="uid://cfcg3wl832dse" path="res://Asset/Image/player_sh.png" id="2_jvxg0"]
+[ext_resource type="Texture2D" uid="uid://hikqac5bqf4t" path="res://Asset/Image/shoot.png" id="3_jvxg0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mud5u"]
 atlas = ExtResource("2_jvxg0")
@@ -122,11 +123,73 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvxg0"]
+atlas = ExtResource("2_jvxg0")
+region = Rect2(256, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd545"]
+atlas = ExtResource("2_jvxg0")
+region = Rect2(288, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3xbo"]
+atlas = ExtResource("3_jvxg0")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_parcb"]
+atlas = ExtResource("3_jvxg0")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b564"]
+atlas = ExtResource("3_jvxg0")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g743h"]
+atlas = ExtResource("3_jvxg0")
+region = Rect2(256, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wd545"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvxg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd545")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3xbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_parcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b564")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g743h")
+}],
+"loop": false,
+"name": &"move_forward",
+"speed": 12.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animator", "animator_rocket")]
 script = ExtResource("1_3eeal")
+animator = NodePath("AnimatedSprite2D_Jet")
+animator_rocket = NodePath("AnimatedSprite2D_Rocket")
 
 [node name="AnimatedSprite2D_Jet" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_q3xbo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D_Rocket" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 68)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wd545")
