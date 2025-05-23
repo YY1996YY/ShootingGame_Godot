@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed : float = 300
 @export var animator : AnimatedSprite2D
 @export var animator_rocket : AnimatedSprite2D
-
+@export var hp : int
 enum MovingStatusRL{
 	flat,
 	right,
@@ -14,6 +14,7 @@ var movingStatusRL
 func _ready() -> void:
 	movingStatusRL = MovingStatusRL.flat
 	animator.play("default")
+	hp = 3
 	pass # Replace with function body.
 
 

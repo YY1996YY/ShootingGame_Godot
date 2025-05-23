@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqystwffyar2v"]
+[gd_scene load_steps=26 format=3 uid="uid://bqystwffyar2v"]
 
 [ext_resource type="Script" uid="uid://q0ulxuxmd1j2" path="res://Script/player.gd" id="1_3eeal"]
 [ext_resource type="Texture2D" uid="uid://cfcg3wl832dse" path="res://Asset/Image/player_sh.png" id="2_jvxg0"]
@@ -123,6 +123,8 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvxg0"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvxg0"]
 atlas = ExtResource("2_jvxg0")
 region = Rect2(256, 128, 32, 32)
@@ -188,6 +190,8 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_q3xbo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4.48, 4.48)
+shape = SubResource("CircleShape2D_jvxg0")
 
 [node name="AnimatedSprite2D_Rocket" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 68)

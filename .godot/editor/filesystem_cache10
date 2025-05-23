@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747894604
+::res://::1748000730
 icon.svg::CompressedTexture2D/CompressedTexture2D::339594110986024979::1747533777::1747533784::1::::<><><>0<>0<>a1a1cc81b8d2b570153b3454ca8cd154<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-README.md::TextFile::-1::1747841405::0::1::::<><><>0<>0<><>::
+README.md::TextFile/TextFile::-1::1747962093::0::1::::<><><>0<>0<><>::
 ::res://Asset/::1747533984
 ::res://Asset/Image/::1747596722
 back.png::CompressedTexture2D/CompressedTexture2D::4882386026803938074::1747533992::1747535457::1::::<><><>0<>0<>394d29a42b0214e738ce03ee9a230ab6<>res://.godot/imported/back.png-e86c9c54adc304ae2cd2a069fbdf64ad.ctex::
@@ -18,10 +18,10 @@ shoot.png::CompressedTexture2D/CompressedTexture2D::508472674583491409::17475967
 StartKey.png::CompressedTexture2D/CompressedTexture2D::3126867915042205203::1747596721::1747596722::1::::<><><>0<>0<>6dfc187dce5cfd03dc35c37b8c438601<>res://.godot/imported/StartKey.png-e637c939d6588d9f20adbef5c8fef518.ctex::
 title.png::CompressedTexture2D/CompressedTexture2D::8195615218469826053::1747596721::1747596722::1::::<><><>0<>0<>299f07548b6a8d73261388e25e63fc27<>res://.godot/imported/title.png-b7ec17f31863b4ab6840c9d180fc2b3f.ctex::
 titleback.png::CompressedTexture2D/CompressedTexture2D::5388202098572379505::1747596721::1747596722::1::::<><><>0<>0<>71b7ca1d13f84435f31dcba787d953ea<>res://.godot/imported/titleback.png-076ddad79123cc76da03d6c87517c323.ctex::
-::res://Scene/::1747599843
-Background.tscn::PackedScene::3953629934189327233::1747599831::0::1::::<><><>0<>0<><>::uid://cbtcgjlaapn6q::::res://Asset/Image/back.png
-Game.tscn::PackedScene::8462659434861014203::1747599831::0::1::::<><><>0<>0<><>::uid://o8bol2f45qf6::::res://Script/game.gd<>uid://bwlfyb0ac433r::::res://Scene/Background.tscn<>uid://bqystwffyar2v::::res://Scene/Player.tscn
-Player.tscn::PackedScene::3560115247450038223::1747599843::0::1::::<><><>0<>0<><>::uid://q0ulxuxmd1j2::::res://Script/player.gd<>uid://cfcg3wl832dse::::res://Asset/Image/player_sh.png
-::res://Script/::1747598647
+::res://Scene/::1747967544
+Background.tscn::PackedScene::3953629934189327233::1747967544::0::1::::<><><>0<>0<><>::uid://cbtcgjlaapn6q::::res://Asset/Image/back.png
+Game.tscn::PackedScene::8462659434861014203::1747967544::0::1::::<><><>0<>0<><>::uid://o8bol2f45qf6::::res://Script/game.gd<>uid://bwlfyb0ac433r::::res://Scene/Background.tscn<>uid://bqystwffyar2v::::res://Scene/Player.tscn
+Player.tscn::PackedScene::3560115247450038223::1747967544::0::1::::<><><>0<>0<><>::uid://q0ulxuxmd1j2::::res://Script/player.gd<>uid://cfcg3wl832dse::::res://Asset/Image/player_sh.png<>uid://hikqac5bqf4t::::res://Asset/Image/shoot.png
+::res://Script/::1747899355
 game.gd::GDScript/GDScript::1050854614657560489::1747540274::0::1::::<>Node2D<><>0<>0<><>::
-player.gd::GDScript::1175866165642636397::1747598647::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript/GDScript::1175866165642636397::1747899355::0::1::::<>CharacterBody2D<><>0<>0<><>::
