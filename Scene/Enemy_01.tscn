@@ -86,13 +86,13 @@ animations = [{
 "texture": null
 }],
 "loop": false,
-"name": &"explore",
+"name": &"explode",
 "speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_81bay"]
 
-[node name="Enemy_01" type="Area2D" node_paths=PackedStringArray("animator")]
+[node name="Enemy_01" type="Area2D" node_paths=PackedStringArray("animator") groups=["Enemy"]]
 z_index = 1000
 scale = Vector2(3, 3)
 script = ExtResource("1_e824p")
@@ -101,10 +101,15 @@ enemy01_speed = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rqyap")
-animation = &"explore"
+animation = &"explode"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_81bay")
 
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_destroy_timer_timeout"]

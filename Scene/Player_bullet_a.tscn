@@ -1,8 +1,91 @@
-[gd_scene load_steps=2 format=3 uid="uid://h4qegv1ooyu"]
+[gd_scene load_steps=12 format=3 uid="uid://h4qegv1ooyu"]
+
+[ext_resource type="Script" uid="uid://dqn6fkecyefdi" path="res://Scene/player_bullet_a.gd" id="1_nymos"]
+[ext_resource type="Texture2D" uid="uid://cfcg3wl832dse" path="res://Asset/Image/player_sh.png" id="1_r0xae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nymos"]
+atlas = ExtResource("1_r0xae")
+region = Rect2(72, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00753"]
+atlas = ExtResource("1_r0xae")
+region = Rect2(144, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjufv"]
+atlas = ExtResource("1_r0xae")
+region = Rect2(160, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5ikg"]
+atlas = ExtResource("1_r0xae")
+region = Rect2(176, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frido"]
+atlas = ExtResource("1_r0xae")
+region = Rect2(192, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxsoc"]
+atlas = ExtResource("1_r0xae")
+region = Rect2(208, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enmwx"]
+atlas = ExtResource("1_r0xae")
+region = Rect2(224, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h1gia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nymos")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00753")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjufv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5ikg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frido")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxsoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enmwx")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 24.0
+}]
 
-[node name="PlayerBullet_A" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0xae"]
+size = Vector2(8, 14)
+
+[node name="PlayerBullet_A" type="Area2D" node_paths=PackedStringArray("animator") groups=["playerBullet"]]
+scale = Vector2(4, 4)
+script = ExtResource("1_nymos")
+bullet_speed = -1000.0
+animator = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h1gia")
+animation = &"hit"
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r0xae")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_destroy_timer_timeout"]

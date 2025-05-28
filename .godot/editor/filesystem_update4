@@ -1,7 +1,12 @@
+res://Script/player.gd
+res://Scene/Player.tscn
 res://Scene/Game.tscn
 res://Scene/Background.tscn
-res://Scene/Player.tscn
 res://Scene/Enemy_01.tscn
-res://Script/enemy_01.gd
-res://Script/player.gd
 res://Scene/Player_bullet_a.tscn
+res://Script/enemy_01.gd
+res://Scene/player_bullet_a.gd
+res://Scene/Enemy_02.tscn
+res://Scene/enemy_02.gd
+res://Script/game.gd
+res://Scene/enemy_generator.gd

@@ -2,6 +2,7 @@ extends Node2D
 
 @export var background_scene : Array[PackedScene]
 @export var background_node : Array
+@export var enemy2_scene : PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -22,3 +23,11 @@ func _process(delta: float) -> void:
 		if background_node[i].position.y>7*180:
 			background_node[i].position = Vector2(0,-179);
 		# Background
+
+
+func _on_e_2_timer_timeout() -> void:
+	var enemy2_node = enemy2_scene.instantiate();
+	enemy2_node.position = Vector2(randf_range(150,550),-100)
+	get_tree().current_scene.add_child(enemy2_node)
+	
+	

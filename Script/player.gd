@@ -4,12 +4,15 @@ extends CharacterBody2D
 @export var animator : AnimatedSprite2D
 @export var animator_rocket : AnimatedSprite2D
 @export var hp : int
+@export var bullet_A_scene : PackedScene
 enum MovingStatusRL{
 	flat,
 	right,
 	left
 }
 var movingStatusRL
+
+var is_shoot_A : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	movingStatusRL = MovingStatusRL.flat
@@ -44,6 +47,31 @@ func _physics_process(delta: float) -> void:
 	else :
 		animator_rocket.play("default")
 	
+	if Input.is_action_pressed("shoot_A"):
+		is_shoot_A = true
+		if $Shoot_A_Timer.is_stopped():
+			$Shoot_A_Timer.start()
+		
+		
+		
+		print("shoot!!")
+	elif Input.is_action_just_released("shoot_A") :
+		$Shoot_A_Timer.stop()
+		is_shoot_A = false
+		
+		if $Shoot_A_Timer.is_stopped():
+			print("stop")
 	
 	
 	move_and_slide()
+func _on_timer_timeout() -> void:
+	
+	fire_bullet_A()
+	
+	
+func fire_bullet_A() -> void:
+	var bullet_node = bullet_A_scene.instantiate()
+	bullet_node.position = position + Vector2(0,-70)
+	get_tree().current_scene.add_child(bullet_node)
+	print("Shootaaaaaaa")
+	$FireSound.play()
