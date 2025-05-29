@@ -15,7 +15,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position += Vector2(0,enemy02_speed) * delta
 	
-	
+	if hp <=0 && !is_explored:
+		animator.play("explode")
+		is_explored = true
+		$DestroyTimer.start()
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -27,7 +30,6 @@ func _on_body_entered(body: Node2D) -> void:
 		#print(body.hp)
 		#$DestroyTimer.start()
 		
-	
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -35,10 +37,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet") && !is_explored:
 		hp=hp-1
 		print("1111111111111111111111")
-	if hp <=0:
-		animator.play("explode")
-		is_explored = true
-		$DestroyTimer.start()
+
 		
 func _on_destroy_timer_timeout() -> void:
 	queue_free()

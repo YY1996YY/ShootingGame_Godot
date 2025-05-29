@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1p702k04yrhi"]
+
+[ext_resource type="Script" uid="uid://c1jou7hdg0elu" path="res://Scene/enemy_boss_1.gd" id="1_tqdbj"]
+[ext_resource type="Texture2D" uid="uid://hikqac5bqf4t" path="res://Asset/Image/shoot.png" id="2_rki0t"]
+[ext_resource type="PackedScene" uid="uid://cqabuishcjn0k" path="res://Scene/Enemy_01.tscn" id="2_vn3qh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn3qh"]
+atlas = ExtResource("2_rki0t")
+region = Rect2(0, 96, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xoqc"]
+atlas = ExtResource("2_rki0t")
+region = Rect2(128, 96, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s848h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn3qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xoqc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqdbj"]
+size = Vector2(58, 27.6)
+
+[node name="Enemy_Boss1" type="Area2D" groups=["Enemy"]]
+z_index = 1000
+position = Vector2(0, -1)
+scale = Vector2(5, 5)
+script = ExtResource("1_tqdbj")
+enemyBoss_speed = 200.0
+hp = 5
+enemy1_scene = ExtResource("2_vn3qh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s848h")
+frame_progress = 0.669429
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.4)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tqdbj")
+
+[node name="atkTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="atkTimer" to="." method="_on_atk_timer_timeout"]

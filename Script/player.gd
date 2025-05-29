@@ -13,39 +13,45 @@ enum MovingStatusRL{
 var movingStatusRL
 
 var is_shoot_A : bool = false
+var is_explode : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	movingStatusRL = MovingStatusRL.flat
 	animator.play("default")
-	hp = 3
+	hp = 1
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	velocity = Input.get_vector("left","right","forward","backward") * speed
-	
-	#left animation
-	if Input.is_action_pressed("left") and movingStatusRL != MovingStatusRL.left:
-		animator.play("turn_left")
-		movingStatusRL = MovingStatusRL.left
-	elif not Input.is_action_pressed("left")  and  movingStatusRL == MovingStatusRL.left:
-		movingStatusRL = MovingStatusRL.flat
-		animator.play("turn_left_B")
+	if hp > 0:
+		#left animation
+		if Input.is_action_pressed("left") and movingStatusRL != MovingStatusRL.left:
+			animator.play("turn_left")
+			movingStatusRL = MovingStatusRL.left
+		elif not Input.is_action_pressed("left")  and  movingStatusRL == MovingStatusRL.left:
+			movingStatusRL = MovingStatusRL.flat
+			animator.play("turn_left_B")
+			
+		#right animation
+		if Input.is_action_pressed("right") and movingStatusRL != MovingStatusRL.right:
+			animator.play("turn_right")
+			movingStatusRL = MovingStatusRL.right
+		elif  not Input.is_action_pressed("right")  and  movingStatusRL == MovingStatusRL.right:
+			movingStatusRL = MovingStatusRL.flat
+			animator.play("turn_right_B")
 		
-	#right animation
-	if Input.is_action_pressed("right") and movingStatusRL != MovingStatusRL.right:
-		animator.play("turn_right")
-		movingStatusRL = MovingStatusRL.right
-	elif  not Input.is_action_pressed("right")  and  movingStatusRL == MovingStatusRL.right:
-		movingStatusRL = MovingStatusRL.flat
-		animator.play("turn_right_B")
+		#forward animation
+		if Input.is_action_pressed("forward"):
+			animator_rocket.play("move_forward")
+		else :
+			animator_rocket.play("default")
+	elif !is_explode:
+		animator.play("dead")
+		is_explode = true
 	
-	#forward animation
-	if Input.is_action_pressed("forward"):
-		animator_rocket.play("move_forward")
-	else :
-		animator_rocket.play("default")
+	
 	
 	if Input.is_action_pressed("shoot_A"):
 		is_shoot_A = true
@@ -62,8 +68,8 @@ func _physics_process(delta: float) -> void:
 		if $Shoot_A_Timer.is_stopped():
 			print("stop")
 	
-	
-	move_and_slide()
+	if hp >0:
+		move_and_slide()
 func _on_timer_timeout() -> void:
 	
 	fire_bullet_A()

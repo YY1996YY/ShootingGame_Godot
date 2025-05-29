@@ -92,7 +92,7 @@ scale = Vector2(4, 4)
 script = ExtResource("1_rqjyt")
 animator = NodePath("AnimatedSprite2D")
 enemy02_speed = 300.0
-hp = 10
+hp = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wbmex")
@@ -104,6 +104,7 @@ shape = SubResource("RectangleShape2D_7ud57")
 
 [node name="DestroyTimer" type="Timer" parent="."]
 wait_time = 0.25
+one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
