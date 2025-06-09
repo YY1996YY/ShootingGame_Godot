@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1748503841
+::res://::1749118611
 export_presets.cfg::TextFile/TextFile::-1::1748501779::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::339594110986024979::1747533777::1747533784::1::::<><><>0<>0<>a1a1cc81b8d2b570153b3454ca8cd154<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile/TextFile::-1::1747962093::0::1::::<><><>0<>0<><>::
@@ -37,3 +37,4 @@ Player_bullet_a.tscn::PackedScene/PackedScene::16240230122807212::1748501668::0:
 enemy_01.gd::GDScript/GDScript::1756816137673577411::1748448083::0::1::::<>Area2D<><>0<>0<><>::
 game.gd::GDScript/GDScript::1050854614657560489::1748499579::0::1::::<>Node2D<><>0<>0<><>::
 player.gd::GDScript/GDScript::1175866165642636397::1748501632::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://実行/::1748503977
