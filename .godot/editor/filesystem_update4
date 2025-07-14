@@ -1,0 +1,7 @@
+res://Scene/Game.tscn
+res://Scene/Background.tscn
+res://Scene/Player.tscn
+res://Scene/Enemy_01.tscn
+res://Scene/Player_bullet_a.tscn
+res://Scene/Enemy_02.tscn
+res://Scene/Enemy_boss_1.tscn

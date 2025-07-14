@@ -12,6 +12,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += Vector2(0,bullet_speed)*delta;
+	
+
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -27,4 +29,8 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _destroy_timer_timeout() -> void:
 	
+	queue_free()
+
+
+func _on_lifespan_timeout() -> void:
 	queue_free()

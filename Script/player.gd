@@ -54,9 +54,10 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_pressed("shoot_A"):
-		is_shoot_A = true
-		if $Shoot_A_Timer.is_stopped():
-			$Shoot_A_Timer.start()
+		if hp > 0:
+			is_shoot_A = true
+			if $Shoot_A_Timer.is_stopped():
+				$Shoot_A_Timer.start()
 		
 		
 		
